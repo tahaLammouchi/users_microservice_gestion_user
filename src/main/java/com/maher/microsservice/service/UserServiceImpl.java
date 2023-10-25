@@ -1,8 +1,8 @@
 package com.maher.microsservice.service;
 
+import com.maher.microsservice.entities.Role;
 import com.maher.microsservice.Repos.RoleRepository;
 import com.maher.microsservice.Repos.UserRepository;
-import com.maher.microsservice.entities.Role;
 import com.maher.microsservice.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,8 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static java.lang.constant.ConstantDescs.NULL;
 
 @Transactional
 @Service
@@ -43,7 +41,7 @@ public class UserServiceImpl implements UserService{
         msg.setTo(user.getEmail());
         msg.setSubject("your code of the authentication is :");
         msg.setText(code);
-        mailSender.send(msg);
+        //mailSender.send(msg);
         List<Role> listOfrole=new ArrayList<>();
         listOfrole.add(roleRep.findRoleById(2L));
         user.setRoles(listOfrole);
@@ -120,9 +118,9 @@ public class UserServiceImpl implements UserService{
         User user=userRep.findByUsername(username);
         if(user!=null)
         {
-            if(user.getEnabled()==null || user.getEnabled()==false)
+            if(user.getEnabled()==null || !user.getEnabled())
             {
-                if(user.getCode().equals(code)==true)
+                if(user.getCode().equals(code))
                 {
                     user.setEnabled(true);
                     userRep.save(user);

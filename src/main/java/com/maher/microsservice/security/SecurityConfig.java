@@ -18,6 +18,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 
 import java.util.Collections;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -56,18 +57,19 @@ public class SecurityConfig {
                     }
                 }).and()
                 .authorizeHttpRequests()
-                .requestMatchers("/login").permitAll()
+                .requestMatchers("/login", "/add").permitAll()
                 //je veut que la requete /all soit accessible par tous les utilisateurs
                 .requestMatchers("/all").permitAll()
                 .requestMatchers("/activateUser/{username}").permitAll()
                 .requestMatchers("/send").permitAll()
-                .requestMatchers("/add").permitAll()
                 .requestMatchers("/addRole").permitAll()
                 .requestMatchers("/findUserById").permitAll()
                 .requestMatchers("/allRoles").permitAll()
                 .requestMatchers("/deleteUserById").permitAll()
                 .requestMatchers("/findRoleById").permitAll()
                 .requestMatchers("/removeRoleFromUer").permitAll()
+                .requestMatchers("/error").permitAll()
+
 
 
 
@@ -75,6 +77,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated().and()
                 .addFilterBefore(new JWTAuthenticationFilter(authenticationManager), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+
         return httpSecurity.build();
     }
 }

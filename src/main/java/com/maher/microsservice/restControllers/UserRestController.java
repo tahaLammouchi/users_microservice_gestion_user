@@ -6,6 +6,7 @@ import java.util.Map;
 import com.maher.microsservice.entities.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
 import com.maher.microsservice.entities.User;
 import com.maher.microsservice.service.UserService;
 @RestController

@@ -2,7 +2,6 @@ package com.maher.microsservice.service;
 
 import com.maher.microsservice.entities.Role;
 import com.maher.microsservice.entities.User;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

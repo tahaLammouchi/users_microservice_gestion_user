@@ -5,10 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import com.maher.microsservice.entities.Role;
-import com.maher.microsservice.entities.User;
 import com.maher.microsservice.service.UserService;
-import jakarta.annotation.PostConstruct;
 
 
 @SpringBootApplication

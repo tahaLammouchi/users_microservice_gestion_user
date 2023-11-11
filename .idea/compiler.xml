@@ -10,13 +10,9 @@
         <module name="users-microservice" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="microsservice" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="microsservice" options="-parameters" />
       <module name="users-microservice" options="-parameters" />
     </option>
   </component>
